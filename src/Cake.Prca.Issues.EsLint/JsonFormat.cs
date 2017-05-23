@@ -24,7 +24,7 @@
         /// <inheritdoc />
         public override IEnumerable<ICodeAnalysisIssue> ReadIssues(
             ReportCodeAnalysisIssuesToPullRequestSettings prcaSettings,
-            EsLintSettings settings)
+            EsLintIssuesSettings settings)
         {
             prcaSettings.NotNull(nameof(prcaSettings));
             settings.NotNull(nameof(settings));
@@ -38,7 +38,7 @@
                 let
                     rule = (string)message.SelectToken("ruleId")
                 select
-                    new CodeAnalysisIssue<EsLintProvider>(
+                    new CodeAnalysisIssue<EsLintIssuesProvider>(
                         GetRelativeFilePath((string)file.SelectToken("filePath"), prcaSettings),
                         (int)message.SelectToken("line"),
                         (string)message.SelectToken("message"),

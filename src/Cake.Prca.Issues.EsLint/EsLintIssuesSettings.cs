@@ -4,17 +4,17 @@
     using Core.IO;
 
     /// <summary>
-    /// Settings for <see cref="EsLintProvider"/>.
+    /// Settings for <see cref="EsLintIssuesProvider"/>.
     /// </summary>
-    public class EsLintSettings
+    public class EsLintIssuesSettings
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EsLintSettings"/> class.
+        /// Initializes a new instance of the <see cref="EsLintIssuesSettings"/> class.
         /// </summary>
         /// <param name="logFilePath">Path to the the ESLint log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided ESLint log file.</param>
-        protected EsLintSettings(FilePath logFilePath, ILogFileFormat format)
+        protected EsLintIssuesSettings(FilePath logFilePath, ILogFileFormat format)
         {
             logFilePath.NotNull(nameof(logFilePath));
             format.NotNull(nameof(format));
@@ -31,12 +31,12 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EsLintSettings"/> class.
+        /// Initializes a new instance of the <see cref="EsLintIssuesSettings"/> class.
         /// </summary>
         /// <param name="logFileContent">Content of the the ESLint log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided ESLint log file.</param>
-        protected EsLintSettings(string logFileContent, ILogFileFormat format)
+        protected EsLintIssuesSettings(string logFileContent, ILogFileFormat format)
         {
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
             format.NotNull(nameof(format));
@@ -56,28 +56,28 @@
         public string LogFileContent { get; private set; }
 
         /// <summary>
-        /// Returns a new instance of the <see cref="EsLintSettings"/> class from a log file on disk.
+        /// Returns a new instance of the <see cref="EsLintIssuesSettings"/> class from a log file on disk.
         /// </summary>
         /// <param name="logFilePath">Path to the ESLint log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided ESLint log file.</param>
-        /// <returns>Instance of the <see cref="EsLintSettings"/> class.</returns>
-        public static EsLintSettings FromFilePath(FilePath logFilePath, ILogFileFormat format)
+        /// <returns>Instance of the <see cref="EsLintIssuesSettings"/> class.</returns>
+        public static EsLintIssuesSettings FromFilePath(FilePath logFilePath, ILogFileFormat format)
         {
-            return new EsLintSettings(logFilePath, format);
+            return new EsLintIssuesSettings(logFilePath, format);
         }
 
         /// <summary>
-        /// Returns a new instance of the <see cref="EsLintSettings"/> class from the content
+        /// Returns a new instance of the <see cref="EsLintIssuesSettings"/> class from the content
         /// of a ESLint log file.
         /// </summary>
         /// <param name="logFileContent">Content of the ESLint log file.
         /// The log file needs to be in the format as defined by the <paramref name="format"/> parameter.</param>
         /// <param name="format">Format of the provided ESLint log file.</param>
-        /// <returns>Instance of the <see cref="EsLintSettings"/> class.</returns>
-        public static EsLintSettings FromContent(string logFileContent, ILogFileFormat format)
+        /// <returns>Instance of the <see cref="EsLintIssuesSettings"/> class.</returns>
+        public static EsLintIssuesSettings FromContent(string logFileContent, ILogFileFormat format)
         {
-            return new EsLintSettings(logFileContent, format);
+            return new EsLintIssuesSettings(logFileContent, format);
         }
     }
 }
