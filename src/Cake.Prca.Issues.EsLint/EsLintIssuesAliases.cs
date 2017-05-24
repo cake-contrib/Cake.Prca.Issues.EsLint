@@ -77,7 +77,7 @@
         }
 
         /// <summary>
-        /// Gets an instance for the ESLint JSON log format as written by the JSON formatter
+        /// Gets an instance for the ESLint JSON log format as written by the JSON formatter.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns>Instance for the ESLint JSON log format.</returns>
