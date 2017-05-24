@@ -10,8 +10,7 @@
     /// to write them to pull requests.
     /// </summary>
     [CakeAliasCategory(CakeAliasConstants.MainCakeAliasCategory)]
-    [CakeNamespaceImport("Cake.Prca.Issues.EsLint")]
-    public static class EsLintProviderAliases
+    public static class EsLintIssuesAliases
     {
         /// <summary>
         /// Registers a new URL resolver with default priority of 0.
@@ -78,7 +77,7 @@
         }
 
         /// <summary>
-        /// Gets an instance for the ESLint JSON log format as written by the JSON formatter
+        /// Gets an instance for the ESLint JSON log format as written by the JSON formatter.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns>Instance for the ESLint JSON log format.</returns>
@@ -106,7 +105,7 @@
         /// <![CDATA[
         ///     var repoRoot = new DirectoryPath("c:\repo");
         ///     ReportCodeAnalysisIssuesToPullRequest(
-        ///         EsLintFromFilePath(
+        ///         EsLintIssuesFromFilePath(
         ///             new FilePath("C:\build\ESLint.log")),
         ///         TfsPullRequests(
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
@@ -118,7 +117,7 @@
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(CakeAliasConstants.CodeAnalysisProviderCakeAliasCategory)]
-        public static ICodeAnalysisProvider EsLintFromFilePath(
+        public static ICodeAnalysisProvider EsLintIssuesFromFilePath(
             this ICakeContext context,
             FilePath logFilePath,
             ILogFileFormat format)
@@ -127,7 +126,7 @@
             logFilePath.NotNull(nameof(logFilePath));
             format.NotNull(nameof(format));
 
-            return context.EsLint(EsLintSettings.FromFilePath(logFilePath, format));
+            return context.EsLintIssues(EsLintIssuesSettings.FromFilePath(logFilePath, format));
         }
 
         /// <summary>
@@ -144,7 +143,7 @@
         /// <![CDATA[
         ///     var repoRoot = new DirectoryPath("c:\repo");
         ///     ReportCodeAnalysisIssuesToPullRequest(
-        ///         EsLintFromContent(
+        ///         EsLintIssuesFromContent(
         ///             logFileContent),
         ///         TfsPullRequests(
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
@@ -156,7 +155,7 @@
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(CakeAliasConstants.CodeAnalysisProviderCakeAliasCategory)]
-        public static ICodeAnalysisProvider EsLintFromContent(
+        public static ICodeAnalysisProvider EsLintIssuesFromContent(
             this ICakeContext context,
             string logFileContent,
             ILogFileFormat format)
@@ -165,7 +164,7 @@
             logFileContent.NotNullOrWhiteSpace(nameof(logFileContent));
             format.NotNull(nameof(format));
 
-            return context.EsLint(EsLintSettings.FromContent(logFileContent, format));
+            return context.EsLintIssues(EsLintIssuesSettings.FromContent(logFileContent, format));
         }
 
         /// <summary>
@@ -180,11 +179,11 @@
         /// <![CDATA[
         ///     var repoRoot = new DirectoryPath("c:\repo");
         ///     var settings =
-        ///         new EsLintSettings(
+        ///         new EsLintIssuesSettings(
         ///             new FilePath("C:\build\ESLint.log"));
         ///
         ///     ReportCodeAnalysisIssuesToPullRequest(
-        ///         EsLint(settings),
+        ///         EsLintIssues(settings),
         ///         TfsPullRequests(
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
         ///             "refs/heads/feature/myfeature",
@@ -195,14 +194,14 @@
         /// </example>
         [CakeMethodAlias]
         [CakeAliasCategory(CakeAliasConstants.CodeAnalysisProviderCakeAliasCategory)]
-        public static ICodeAnalysisProvider EsLint(
+        public static ICodeAnalysisProvider EsLintIssues(
             this ICakeContext context,
-            EsLintSettings settings)
+            EsLintIssuesSettings settings)
         {
             context.NotNull(nameof(context));
             settings.NotNull(nameof(settings));
 
-            return new EsLintProvider(context.Log, settings);
+            return new EsLintIssuesProvider(context.Log, settings);
         }
     }
 }

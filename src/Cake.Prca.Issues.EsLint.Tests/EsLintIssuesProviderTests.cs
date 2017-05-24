@@ -1,23 +1,20 @@
 ﻿namespace Cake.Prca.Issues.EsLint.Tests
 {
-    using System.Linq;
-    using Core.IO;
-    using Shouldly;
     using Testing;
     using Xunit;
 
-    public class EsLintProviderTests
+    public class EsLintIssuesProviderTests
     {
-        public sealed class TheMsBuildCodeAnalysisProviderCtor
+        public sealed class TheEsLintIssuesProviderCtor
         {
             [Fact]
             public void Should_Throw_If_Log_Is_Null()
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    new EsLintProvider(
+                    new EsLintIssuesProvider(
                         null,
-                        EsLintSettings.FromContent(
+                        EsLintIssuesSettings.FromContent(
                             "Foo",
                             new JsonFormat(new FakeLog()))));
 
@@ -29,7 +26,7 @@
             public void Should_Throw_If_Settings_Are_Null()
             {
                 var result = Record.Exception(() =>
-                    new EsLintProvider(
+                    new EsLintIssuesProvider(
                         new FakeLog(),
                         null));
 

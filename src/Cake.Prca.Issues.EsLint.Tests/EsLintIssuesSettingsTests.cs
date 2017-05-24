@@ -8,16 +8,16 @@
     using Testing;
     using Xunit;
 
-    public class EsLintSettingsTests
+    public class EsLintIssuesSettingsTests
     {
-        public sealed class TheEsLintSettingsCtor
+        public sealed class TheEsLintIssuesSettingsCtor
         {
             [Fact]
             public void Should_Throw_If_LogFilePath_Is_Null()
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    EsLintSettings.FromFilePath(
+                    EsLintIssuesSettings.FromFilePath(
                         null,
                         new JsonFormat(new FakeLog())));
 
@@ -30,7 +30,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    EsLintSettings.FromFilePath(
+                    EsLintIssuesSettings.FromFilePath(
                         @"C:\foo.log",
                         null));
 
@@ -43,7 +43,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    EsLintSettings.FromContent(
+                    EsLintIssuesSettings.FromContent(
                         null,
                         new JsonFormat(new FakeLog())));
 
@@ -56,7 +56,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    EsLintSettings.FromContent(
+                    EsLintIssuesSettings.FromContent(
                         string.Empty,
                         new JsonFormat(new FakeLog())));
 
@@ -69,7 +69,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    EsLintSettings.FromContent(
+                    EsLintIssuesSettings.FromContent(
                         " ",
                         new JsonFormat(new FakeLog())));
 
@@ -82,7 +82,7 @@
             {
                 // Given / When
                 var result = Record.Exception(() =>
-                    EsLintSettings.FromContent(
+                    EsLintIssuesSettings.FromContent(
                         "foo",
                         null));
 
@@ -98,7 +98,7 @@
                 var format = new JsonFormat(new FakeLog());
 
                 // When
-                var settings = EsLintSettings.FromContent(logFileContent, format);
+                var settings = EsLintIssuesSettings.FromContent(logFileContent, format);
 
                 // Then
                 settings.LogFileContent.ShouldBe(logFileContent);
@@ -129,7 +129,7 @@
 
                     // When
                     var settings =
-                        EsLintSettings.FromFilePath(
+                        EsLintIssuesSettings.FromFilePath(
                             fileName,
                             new JsonFormat(new FakeLog()));
 

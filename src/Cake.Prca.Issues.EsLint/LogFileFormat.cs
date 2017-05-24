@@ -27,6 +27,6 @@
         /// <inheritdoc/>
         public abstract IEnumerable<ICodeAnalysisIssue> ReadIssues(
             ReportCodeAnalysisIssuesToPullRequestSettings prcaSettings,
-            EsLintSettings settings);
+            EsLintIssuesSettings settings);
     }
 }

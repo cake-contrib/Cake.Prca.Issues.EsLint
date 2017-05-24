@@ -26,7 +26,7 @@
             public void Should_Read_Issue_Correct()
             {
                 // Given
-                var fixture = new EsLintProviderFixture("jsonFormatWindows.json");
+                var fixture = new EsLintIssuesProviderFixture("jsonFormatWindows.json");
 
                 // When
                 var issues = fixture.ReadIssues().ToList();

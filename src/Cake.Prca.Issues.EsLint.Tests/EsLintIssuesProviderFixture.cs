@@ -5,9 +5,9 @@
     using Core.Diagnostics;
     using Testing;
 
-    public class EsLintProviderFixture
+    public class EsLintIssuesProviderFixture
     {
-        public EsLintProviderFixture(string fileResourceName)
+        public EsLintIssuesProviderFixture(string fileResourceName)
         {
             this.Log = new FakeLog { Verbosity = Verbosity.Normal };
 
@@ -16,7 +16,7 @@
                 using (var sr = new StreamReader(stream))
                 {
                     this.Settings =
-                        EsLintSettings.FromContent(
+                        EsLintIssuesSettings.FromContent(
                             sr.ReadToEnd(),
                             new JsonFormat(this.Log));
                 }
@@ -28,13 +28,13 @@
 
         public FakeLog Log { get; set; }
 
-        public EsLintSettings Settings { get; set; }
+        public EsLintIssuesSettings Settings { get; set; }
 
         public ReportCodeAnalysisIssuesToPullRequestSettings PrcaSettings { get; set; }
 
-        internal EsLintProvider Create()
+        internal EsLintIssuesProvider Create()
         {
-            var provider = new EsLintProvider(this.Log, this.Settings);
+            var provider = new EsLintIssuesProvider(this.Log, this.Settings);
             provider.Initialize(this.PrcaSettings);
             return provider;
         }
