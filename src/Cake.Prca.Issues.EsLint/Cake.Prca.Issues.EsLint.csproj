@@ -59,10 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonFormat.cs" />
-    <Compile Include="EsLintProvider.cs" />
-    <Compile Include="EsLintProviderAliases.cs" />
+    <Compile Include="EsLintIssuesProvider.cs" />
+    <Compile Include="EsLintIssuesAliases.cs" />
     <Compile Include="EsLintRuleUrlResolver.cs" />
-    <Compile Include="EsLintSettings.cs" />
+    <Compile Include="EsLintIssuesSettings.cs" />
     <Compile Include="ILogFileFormat.cs" />
     <Compile Include="LogFileFormat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

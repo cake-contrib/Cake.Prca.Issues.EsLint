@@ -6,16 +6,16 @@
     /// <summary>
     /// Provider for code analysis issues reported by ESLint.
     /// </summary>
-    internal class EsLintProvider : CodeAnalysisProvider
+    internal class EsLintIssuesProvider : CodeAnalysisProvider
     {
-        private readonly EsLintSettings settings;
+        private readonly EsLintIssuesSettings settings;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EsLintProvider"/> class.
+        /// Initializes a new instance of the <see cref="EsLintIssuesProvider"/> class.
         /// </summary>
         /// <param name="log">The Cake log context.</param>
         /// <param name="settings">Settings for reading the log file.</param>
-        public EsLintProvider(ICakeLog log, EsLintSettings settings)
+        public EsLintIssuesProvider(ICakeLog log, EsLintIssuesSettings settings)
             : base(log)
         {
             settings.NotNull(nameof(settings));

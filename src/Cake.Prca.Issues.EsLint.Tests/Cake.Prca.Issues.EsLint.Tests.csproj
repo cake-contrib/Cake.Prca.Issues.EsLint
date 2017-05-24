@@ -78,10 +78,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExceptionAssertExtensions.cs" />
-    <Compile Include="EsLintProviderFixture.cs" />
-    <Compile Include="EsLintProviderTests.cs" />
+    <Compile Include="EsLintIssuesProviderFixture.cs" />
+    <Compile Include="EsLintIssuesProviderTests.cs" />
     <Compile Include="EsLintRuleUrlResolverTests.cs" />
-    <Compile Include="EsLintSettingsTests.cs" />
+    <Compile Include="EsLintIssuesSettingsTests.cs" />
     <Compile Include="JsonFormatTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
