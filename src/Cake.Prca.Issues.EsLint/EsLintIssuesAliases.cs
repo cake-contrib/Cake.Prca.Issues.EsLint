@@ -10,7 +10,6 @@
     /// to write them to pull requests.
     /// </summary>
     [CakeAliasCategory(CakeAliasConstants.MainCakeAliasCategory)]
-    [CakeNamespaceImport("Cake.Prca.Issues.EsLint")]
     public static class EsLintIssuesAliases
     {
         /// <summary>
@@ -78,7 +77,7 @@
         }
 
         /// <summary>
-        /// Gets an instance for the ESLint JSON log format as written by the JSON formatter
+        /// Gets an instance for the ESLint JSON log format as written by the JSON formatter.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <returns>Instance for the ESLint JSON log format.</returns>
