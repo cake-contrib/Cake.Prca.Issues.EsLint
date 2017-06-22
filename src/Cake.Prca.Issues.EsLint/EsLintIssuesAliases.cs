@@ -104,7 +104,7 @@
         /// <code>
         /// <![CDATA[
         ///     var repoRoot = new DirectoryPath("c:\repo");
-        ///     ReportCodeAnalysisIssuesToPullRequest(
+        ///     ReportIssuesToPullRequest(
         ///         EsLintIssuesFromFilePath(
         ///             new FilePath("C:\build\ESLint.log")),
         ///         TfsPullRequests(
@@ -142,7 +142,7 @@
         /// <code>
         /// <![CDATA[
         ///     var repoRoot = new DirectoryPath("c:\repo");
-        ///     ReportCodeAnalysisIssuesToPullRequest(
+        ///     ReportIssuesToPullRequest(
         ///         EsLintIssuesFromContent(
         ///             logFileContent),
         ///         TfsPullRequests(
@@ -182,7 +182,7 @@
         ///         new EsLintIssuesSettings(
         ///             new FilePath("C:\build\ESLint.log"));
         ///
-        ///     ReportCodeAnalysisIssuesToPullRequest(
+        ///     ReportIssuesToPullRequest(
         ///         EsLintIssues(settings),
         ///         TfsPullRequests(
         ///             new Uri("http://myserver:8080/tfs/defaultcollection/myproject/_git/myrepository"),
