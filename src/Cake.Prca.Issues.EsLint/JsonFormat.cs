@@ -23,7 +23,7 @@
 
         /// <inheritdoc />
         public override IEnumerable<ICodeAnalysisIssue> ReadIssues(
-            ReportCodeAnalysisIssuesToPullRequestSettings prcaSettings,
+            PrcaSettings prcaSettings,
             EsLintIssuesSettings settings)
         {
             prcaSettings.NotNull(nameof(prcaSettings));
@@ -49,7 +49,7 @@
 
         private static string GetRelativeFilePath(
             string absoluteFilePath,
-            ReportCodeAnalysisIssuesToPullRequestSettings prcaSettings)
+            PrcaSettings prcaSettings)
         {
             // Make path relative to repository root.
             var relativeFilePath = absoluteFilePath.Substring(prcaSettings.RepositoryRoot.FullPath.Length);
